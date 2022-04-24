@@ -130,10 +130,10 @@ const Nav = () => {
               <Link to="/farm" className={'navLink ' + classes.link}>
                 Farm
               </Link>
-              <Link to="/" className={'navLink ' + classes.link}>
+              <Link to="https://equilibrrrrium.money/boardroom" className={'navLink ' + classes.link}>
                 Boardroom
               </Link>
-              <Link to="/" className={'navLink ' + classes.link}>
+              <Link to="https://equilibrrrrium.money/bond" className={'navLink ' + classes.link}>
                 Bond
               </Link>
 
@@ -226,8 +226,8 @@ const Nav = () => {
                 </ListItem>
                 <ListItemLink primary="Home" to="/" />
                 <ListItemLink primary="Farm" to="/farm" />
-                <ListItemLink primary="Boardroom" to="/" />
-                <ListItemLink primary="Bond" to="/" />
+                <ListItemLink primary="Boardroom" to="https://equilibrrrrium.money/boardroom" />
+                <ListItemLink primary="Bond" to="https://equilibrrrrium.money/bond" />
                 {/* <ListItemLink primary="SBS" to="/sbs" /> */}
                 {/* <ListItemLink primary="Liquidity" to="/liquidity" /> */}
                 {/* <ListItemLink primary="Regulations" to="/regulations" /> */}
