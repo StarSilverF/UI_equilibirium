@@ -3,7 +3,7 @@ import styled, {ThemeContext} from 'styled-components';
 
 interface LabelProps {
   text?: string;
-  variant?: 'primary' | 'secondary' | 'normal' | 'yellow';
+  variant?: 'primary' | 'secondary' | 'normal' | 'yellow' | 'green' ;
   color?: string;
 }
 
@@ -22,7 +22,9 @@ const Label: React.FC<LabelProps> = ({text, variant = 'secondary', color: custom
       labelColor = '#2c2560'; //color.grey[300];
     } else if (variant === 'yellow') {
       labelColor = '#f9d749';
-    }
+    } else if (variant === 'green') {
+    labelColor = '#37f483';
+  }
   }
   return <StyledLabel color={labelColor}>{text}</StyledLabel>;
 };

@@ -27,7 +27,7 @@ const BackgroundImage = createGlobalStyle`
     background-color: #171923;
   }
 `;
-const TITLE = 'bomb.money | Supply Assets'
+const TITLE = 'equilibrrrrium | Supply Assets'
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {

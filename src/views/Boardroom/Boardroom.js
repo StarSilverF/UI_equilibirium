@@ -37,7 +37,7 @@ const BackgroundImage = createGlobalStyle`
     background-color: #171923;
   }
 `;
-const TITLE = 'bomb.money | Boardroom';
+const TITLE = 'equilibrrrrium | Boardroom';
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {
@@ -126,7 +126,7 @@ const Boardroom = () => {
               <Box mt={3} style={{ width: '600px' }}>
                 <Alert variant="filled" severity="info">
                   <h2> Let's Maintain PEG Together! </h2>
-                  <a href="https://app.bomb.money/xbomb">xBOMB</a> is a great place to put your BOMB rewards , 20% of
+                  <a href="https://app.equilibrrrrium/xbomb">xBOMB</a> is a great place to put your BOMB rewards , 20% of
                   all minted BOMB goes directly to xBOMB stakers.
                   <br />
                   <br />

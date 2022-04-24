@@ -16,11 +16,15 @@ import busmBusdLpLogo from '../../assets/img/busm-busd-lp.png';
 
 import bnbLogo from '../../assets/img/bnb.png';
 import btcLogo from '../../assets/img/BCTB-icon.png';
+import busdLogo from '../../assets/img/busd.png';
+import lpLogo from '../../assets/img/lp.png';
 
 const logosBySymbol: {[title: string]: string} = {
   //Real tokens
   //=====================
   BOMB: bombLogo,
+  BRRRR: bombLogo,
+  BRRR: bombLogo,
   BOMBPNG: bombLogoPNG,
   BSHAREPNG: tShareLogoPNG,
   XBOMB: xbombLogo,
@@ -33,6 +37,8 @@ const logosBySymbol: {[title: string]: string} = {
   ZOO: bnbLogo,
   CAKE: bnbLogo,
   SUSD: bnbLogo,
+  BUSD: busdLogo,
+  LP: lpLogo,
   SBTC: btcLogo,
   BTCB: btcLogo,
   BTC: btcLogo,
@@ -40,7 +46,7 @@ const logosBySymbol: {[title: string]: string} = {
   'BOMB-BNB-LP': bombFtmLpLogo,
   'BOMB-BTCB-LP': bombFtmLpLogo,
     '80BOMB-20BTCB-LP': bombFtmLpLogo,
-
+'BRRRR-BNB-LP': lpLogo,
   'BSHARE-BOMB-LP': bombFtmLpLogo,
   'BOMB-BSHARE-LP': bombFtmLpLogo,
   'BUSM-BUSD-LP': busmBusdLpLogo,

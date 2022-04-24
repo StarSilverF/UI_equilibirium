@@ -83,8 +83,8 @@ const Stake: React.FC<StakeProps> = ({bank}) => {
       decimals={bank.depositToken.decimal}
       onConfirm={(amount) => {
         if (Number(amount) <= 0 || isNaN(Number(amount))) return;
-        onWithdraw(amount);
-        onDismissWithdraw();
+        onStake(amount);
+        onDismissDeposit();
       }}
       tokenName={bank.depositTokenName}
     />,

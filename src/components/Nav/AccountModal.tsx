@@ -36,7 +36,7 @@ const AccountModal: React.FC<ModalProps> = ({onDismiss}) => {
           <TokenSymbol symbol="BOMB" />
           <StyledBalance>
             <StyledValue>{displayBombBalance}</StyledValue>
-            <Label text="BOMB Available" />
+            <Label text="BRRRR Available" />
           </StyledBalance>
         </StyledBalanceWrapper>
 
@@ -44,21 +44,14 @@ const AccountModal: React.FC<ModalProps> = ({onDismiss}) => {
           <TokenSymbol symbol="BSHARE" />
           <StyledBalance>
             <StyledValue>{displayBshareBalance}</StyledValue>
-            <Label text="BSHARE Available" />
-          </StyledBalance>
-        </StyledBalanceWrapper>
-        <StyledBalanceWrapper style={{paddingBottom: '15px'}}>
-          <TokenSymbol symbol="XBOMB" />
-          <StyledBalance>
-            <StyledValue>{displayXbombBalance}</StyledValue>
-            <Label text="XBOMB Available" />
+            <Label text="BRRRRSHARE Available" />
           </StyledBalance>
         </StyledBalanceWrapper>
         <StyledBalanceWrapper style={{paddingBottom: '15px'}}>
           <TokenSymbol symbol="BBOND" />
           <StyledBalance>
             <StyledValue>{displayBbondBalance}</StyledValue>
-            <Label text="BBOND Available" />
+            <Label text="BRRRRBOND Available" />
           </StyledBalance>
         </StyledBalanceWrapper>
       </Balances>

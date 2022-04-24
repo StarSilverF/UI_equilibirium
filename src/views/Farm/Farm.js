@@ -25,7 +25,7 @@ const BackgroundImage = createGlobalStyle`
   }
 `;
 
-const TITLE = 'bomb.money | Farms';
+const TITLE = 'equilibrrrrium | Farms';
 
 const Farm = () => {
   const [banks] = useBanks();
@@ -43,7 +43,7 @@ const Farm = () => {
           {!!account ? (
             <Container maxWidth="lg">
               <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-                Reward Farms
+                FARM
               </Typography>
 
               <Box mt={5}>
@@ -110,11 +110,8 @@ const Farm = () => {
 
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
                   <Typography color="textYellow" align="center" variant="h4" gutterBottom style={{ marginTop: '40px' }}>
-                    Deprecated Farms
+                    GENESIS POOLS
                   </Typography>
-                  <Alert variant="filled" severity="warning">
-                    All farms here have ended or are ending soon. Deposits have been paused, please remove funds.
-                  </Alert>
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
                       .filter((bank) => bank.sectionInUI === 0)

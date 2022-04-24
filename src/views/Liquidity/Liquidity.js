@@ -26,7 +26,7 @@ const BackgroundImage = createGlobalStyle`
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
-const TITLE = 'bomb.money |'
+const TITLE = 'equilibrrrrium |'
 
 const ProvideLiquidity = () => {
   const [bombAmount, setBombAmount] = useState(0);

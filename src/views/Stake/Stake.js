@@ -27,7 +27,7 @@ const BackgroundImage = createGlobalStyle`
     background-color: #171923;
   }
 `;
-const TITLE = 'bomb.money | xBOMB - BOMB Staking'
+const TITLE = 'equilibrrrrium | xBOMB - BOMB Staking'
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {

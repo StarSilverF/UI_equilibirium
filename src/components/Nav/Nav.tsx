@@ -118,9 +118,9 @@ const Nav = () => {
         {matches ? (
           <>
             <Typography variant="h6" color="inherit" noWrap style={{flexGrow: '0'}} className={classes.toolbarTitle}>
-              {/* <a className={ classes.brandLink } href="/">Bomb Money</a> */}
+              {/* <a className={ classes.brandLink } href="/">equilibrrrrium</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
-                <img alt="bomb.money" src={bombLogo} height="60px" />
+                <img alt="equilibrrrrium" src={bombLogo} height="60px" />
               </Link>
             </Typography>
             <Box style={{paddingLeft: '15px', fontSize: '1rem', flexGrow: '1'}}>
@@ -130,13 +130,10 @@ const Nav = () => {
               <Link to="/farm" className={'navLink ' + classes.link}>
                 Farm
               </Link>
-              <Link to="/boardroom" className={'navLink ' + classes.link}>
+              <Link to="/" className={'navLink ' + classes.link}>
                 Boardroom
               </Link>
-              <Link to="/xbomb" className={'navLink ' + classes.link}>
-                xBOMB
-              </Link>
-              <Link to="/bond" className={'navLink ' + classes.link}>
+              <Link to="/" className={'navLink ' + classes.link}>
                 Bond
               </Link>
 
@@ -154,41 +151,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/regulations" className={classes.link}>
                 Regulations
               </Link> */}
-                      <a
-                href="https://bombbtc.com"
-                className={'navLink ' + classes.link}
-                rel="noopener noreferrer"
-              //  target="_blank"
-              >
-                BTC Staking
-              </a>
-    
-              <a
-                href="https://bomb.farm"
-                className={'navLink ' + classes.link}
-                rel="noopener noreferrer"
-              //  target="_blank"
-              >
-                Vaults
-              </a>
-                          <a
-                href="https://shop.bomb.money"
-                className={'navLink ' + classes.link}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Merch
-              </a>
-                               <a
-                href="https://vote.bomb.money"
-                className={'navLink ' + classes.link}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Vote
-              </a>
+
                         <a
-                href="https://docs.bomb.money"
+                href="https://doc.equilibrrrrium.money/start-here/readme"
                 className={'navLink ' + classes.link}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -212,8 +177,6 @@ const Nav = () => {
               <div className="navTokenPrice">${roundAndFormatNumber(Number(bombPriceInDollars), 2)}</div>
               <div className="navTokenIcon bshare"></div>{' '}
               <div className="navTokenPrice">${roundAndFormatNumber(Number(sharePriceInDollars), 2)}</div>
-              <div className="navTokenIcon btc"></div>{' '}
-              <div className="navTokenPrice">${roundAndFormatNumber(Number(btcPriceInDollars), 2)}</div>
             </Box>
             <AccountButton text="Connect" />
           </>
@@ -230,7 +193,7 @@ const Nav = () => {
             </IconButton>
 
             <img
-              alt="bomb.money"
+              alt="equilibrrrrium"
               src={bombLogo}
               style={{height: '40px', marginTop: '-10px', marginLeft: '10px', marginRight: '15px'}}
             />
@@ -263,26 +226,13 @@ const Nav = () => {
                 </ListItem>
                 <ListItemLink primary="Home" to="/" />
                 <ListItemLink primary="Farm" to="/farm" />
-                <ListItemLink primary="xBOMB" to="/xbomb" />
-                <ListItemLink primary="Boardroom" to="/boardroom" />
-                <ListItemLink primary="Bond" to="/bond" />
+                <ListItemLink primary="Boardroom" to="/" />
+                <ListItemLink primary="Bond" to="/" />
                 {/* <ListItemLink primary="SBS" to="/sbs" /> */}
                 {/* <ListItemLink primary="Liquidity" to="/liquidity" /> */}
                 {/* <ListItemLink primary="Regulations" to="/regulations" /> */}
-                <ListItem button component="a" href="https://docs.bomb.money">
+                <ListItem button component="a" href="https://doc.equilibrrrrium.money/start-here/readme">
                   <ListItemText>Documentation</ListItemText>
-                </ListItem>
-                <ListItem button component="a" href="https://bomb.farm">
-                  <ListItemText>Vaults</ListItemText>
-                  </ListItem>
-                  <ListItem button component="a" href="https://shop.bomb.money">
-                  <ListItemText>Merch</ListItemText>
-                  </ListItem>
-                     <ListItem button component="a" href="https://vote.bomb.money">
-                  <ListItemText>Vote</ListItemText>
-                  </ListItem>
-                <ListItem button component="a" href="https://bombbtc.com">
-                  <ListItemText>BTC Staking</ListItemText>
                 </ListItem>
               </List>
             </Drawer>

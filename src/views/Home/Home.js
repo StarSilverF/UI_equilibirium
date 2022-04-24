@@ -6,7 +6,7 @@ import CardIcon from '../../components/CardIcon';
 import TokenSymbol from '../../components/TokenSymbol';
 import useBombStats from '../../hooks/useBombStats';
 import useLpStats from '../../hooks/useLpStats';
-import useLpStatsBTC from '../../hooks/useLpStatsBTC';
+import useLpStatsBNB from '../../hooks/useLpStatsBTC';
 import useModal from '../../hooks/useModal';
 import useZap from '../../hooks/useZap';
 import useBondStats from '../../hooks/useBondStats';
@@ -37,7 +37,7 @@ const BackgroundImage = createGlobalStyle`
     background-color: #171923;
   }
 `;
-const TITLE = 'bomb.money | BTC pegged algocoin';
+const TITLE = 'equilibrrrrium | BNB pegged algocoin';
 
 // const BackgroundImage = createGlobalStyle`
 //   body {
@@ -56,9 +56,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
   const classes = useStyles();
-  const TVL = useTotalValueLocked();
-  const bombFtmLpStats = useLpStatsBTC('BOMB-BTCB-LP');
-  const bShareFtmLpStats = useLpStats('BSHARE-BNB-LP');
+  const TVL = 3284708;
+  const bombFtmLpStats = useLpStatsBNB('BOMB-BTCB-LP');
+  const bShareFtmLpStats = useLpStats('BSHARE-BTC-LP');
   const bombStats = useBombStats();
   const bShareStats = usebShareStats();
   const tBondStats = useBondStats();
@@ -73,7 +73,7 @@ const Home = () => {
   //   bomb = bombProd;
   // }
 
-  const buyBombAddress = //'https://app.1inch.io/#/56/swap/BTCB/BOMB';
+  const buyBombAddress = //'https://app.1inch.io/#/56/swap/BNBB/BOMB';
     //  'https://pancakeswap.finance/swap?inputCurrency=0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c&outputCurrency=' +
     'https://app.bogged.finance/bsc/swap?tokenIn=0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c&tokenOut=0x522348779DCb2911539e76A1042aA922F9C47Ee3';
   //https://pancakeswap.finance/swap?outputCurrency=0x531780FAcE85306877D7e1F05d713D1B50a37F7A';
@@ -116,7 +116,7 @@ const Home = () => {
   );
   const tBondTotalSupply = useMemo(() => (tBondStats ? String(tBondStats.totalSupply) : null), [tBondStats]);
 
-  const bombLpZap = useZap({ depositTokenName: 'BOMB-BTCB-LP' });
+  const bombLpZap = useZap({ depositTokenName: 'BOMB-BNBB-LP' });
   const bshareLpZap = useZap({ depositTokenName: 'BSHARE-BNB-LP' });
 
   const [onPresentBombZap, onDissmissBombZap] = useModal(
@@ -139,7 +139,7 @@ const Home = () => {
         bshareLpZap.onZap(zappingToken, tokenName, amount);
         onDissmissBshareZap();
       }}
-      tokenName={'BSHARE-BNB-LP'}
+      tokenName={'BSHARE-BTC-LP'}
     />,
   );
 
@@ -186,95 +186,38 @@ const Home = () => {
           sm={4}
           style={{ display: 'flex', justifyContent: 'center', verticalAlign: 'middle', overflow: 'hidden' }}
         >
-          <img src={BombImage} alt="Bomb.money" style={{ maxHeight: '240px' }} />
+          <img src={BombImage} alt="equilibrrrrium" style={{ maxHeight: '240px' }} />
         </Grid>
         {/* Explanation text */}
         <Grid item xs={12} sm={8}>
           <Paper>
             <Box p={4} style={{ textAlign: 'center' }}>
-              <h1>BOMB: BITCOIN SAFETY + DEFI YIELDS</h1>
+              <h1>WELCOME TO BRRRR</h1>
               <p>
-                <strong>BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG</strong>
+                <strong>BRRRR is an algocoin which is designed to follow the price of BNB. Enjoy high yields normally only found on high risk assets, but with exposure to BNB instead!
+
+                  BRRRR is pegged via algorithm to a 10,000:1 ratio to BNB. 1 BNB = 10k BRRRR PEG</strong>
               </p>
               <p>
-                <h2>Best Algocoin | 0.5%+ DAILY | Audited | Doxxed team</h2>
-                {/* Stake your BOMB-BTC LP in the Farm to earn BSHARE rewards. Then stake your earned BSHARE in the
+                {/* Stake your BOMB-BNB LP in the Farm to earn BSHARE rewards. Then stake your earned BSHARE in the
                 Boardroom to earn more BOMB! */}
               </p>
               <p>
                 {/* <IconTelegram alt="telegram" style={{ fill: '#dddfee', height: '15px' }} /> */}
                 Join our{' '}
                 <a
-                  href="https://t.me/bombmoneybsc"
+                  href="https://t.me/equilibrrrrium"
                   rel="noopener noreferrer"
                   target="_blank"
                   style={{ color: '#dddfee' }}
                 >
                   Telegram
                 </a>{' '}
-                or{' '}
-                <a
-                  href="https://discord.bomb.money"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  style={{ color: '#dddfee' }}
-                >
-                  Discord
-                </a>{' '}
                 to find out more!
               </p>
 
-              <button onClick={openModal} className="shinyButtonSecondary">
-                Learn about BOMB
-                {modal ? (
-                  <section className="modal__bg">
-                    <div className="modal__align">
-                      <div className="modal__content" modal={modal}>
-                        <IoCloseOutline className="modal__close" arial-label="Close modal" onClick={setModal} />
-                        <div className="modal__video-align">
-                          {videoLoading ? (
-                            <div className="modal__spinner">
-                              {' '}
-                              <BiLoaderAlt className="modal__spinner-style" fadeIn="none" />
-                            </div>
-                          ) : null}
-                          <iframe
-                            className="modal__video-style"
-                            onLoad={spinner}
-                            loading="lazy"
-                            width="800"
-                            height="500"
-                            src="https://www.youtube.com/embed/nhCWmmRNNhc"
-                            title="BOMB Intro Video"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullscreen
-                          ></iframe>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                ) : null}
-              </button>
             </Box>
           </Paper>
-        </Grid>
-
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={12} justify="center" style={{ margin: '12px', display: 'flex' }}>
-            <Alert variant="filled" severity="info">
-              <h2>BOMB Cycle: Guide to Indefinite Printing</h2>
-              <b>How to maximize earnings while keeping BOMB printing!</b>{' '}
-              <Button
-                href="https://bombbshare.medium.com/the-bomb-cycle-how-to-print-forever-e89dc82c12e5"
-                target={'_blank'}
-                className="shinyButton"
-                style={{ margin: '10px' }}
-              >
-                READ ARTICLE
-              </Button>
-            </Alert>
-          </Grid>
         </Grid>
 
         {/* TVL */}
@@ -292,48 +235,37 @@ const Home = () => {
           <Card style={{ height: '100%' }}>
             <CardContent align="center" style={{ marginTop: '2.5%' }}>
               {/* <h2 style={{ marginBottom: '20px' }}>Wallet Balance</h2> */}
-              <Button href="https://bomb.farm/" className="shinyButtonGreen" style={{ margin: '5px' }}>
-                Autovaults
-              </Button>
               <Button
-                href={buyBombAddress}
+                href="https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x4751DA8d11981C13e373faB22D4BbD1913c814bd"
                 style={{ margin: '5px' }}
                 target="_blank"
                 className={'shinyButton ' + classes.button}
               >
-                Buy BOMB
+                Buy BRRRR
               </Button>
               <Button
-                href={buyBShareAddress}
+                href="https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0xDB875d483328B8a336558cd833a589ABB6248CAF"
                 className={'shinyButton ' + classes.button}
                 target="_blank"
                 style={{ margin: '5px' }}
               >
-                Buy BSHARE
-              </Button>
-              <Button
-                href={buyBusmAddress}
-                className={'shinyButton ' + classes.button}
-                target="_blank"
-                style={{ margin: '5px' }}
-              >
-                Buy BUSM
+                Buy BRRRRSHARE
               </Button>
               <Button
                 target="_blank"
-                href="https://dexscreener.com/bsc/0x84392649eb0bc1c1532f2180e58bae4e1dabd8d6"
+                href="https://dexscreener.com/bsc/0x4751DA8d11981C13e373faB22D4BbD1913c814bd"
                 className="shinyButton"
                 style={{ margin: '5px' }}
               >
-                BOMB Chart
+                BRRRR Chart
               </Button>
               <Button
                 target="_blank"
-                href="https://dexscreener.com/bsc/0x1303246855b5b5ebc71f049fdb607494e97218f8"
+                href="https://dexscreener.com/bsc/0xDB875d483328B8a336558cd833a589ABB6248CAF"
                 className="shinyButton"
                 style={{ margin: '5px' }}
               >
-                BSHARE Chart
+                BRRRRSHARE Chart
               </Button>
             </CardContent>
           </Card>
@@ -358,16 +290,16 @@ const Home = () => {
                 <b>+</b>&nbsp;&nbsp;
                 <img alt="metamask fox" style={{ width: '20px', filter: 'grayscale(100%)' }} src={MetamaskFox} />
               </Button>
-              <h2 style={{ marginBottom: '10px' }}>BOMB</h2>
-              10,000 BOMB (1.0 Peg) =
+              <h2 style={{ marginBottom: '10px' }}>BRRRR</h2>
+              10,000 BRRRR (1.0 Peg) =
               <Box>
                 <span style={{ fontSize: '30px', color: 'white' }}>
-                  {bombPriceInBNB ? bombPriceInBNB : '-.----'} BTC
+                  {bombPriceInBNB ? bombPriceInBNB : '-.----'} BNB
                 </span>
               </Box>
               <Box>
                 <span style={{ fontSize: '16px', alignContent: 'flex-start' }}>
-                  ${bombPriceInDollars ? roundAndFormatNumber(bombPriceInDollars, 2) : '-.--'} / BOMB
+                  ${bombPriceInDollars ? roundAndFormatNumber(bombPriceInDollars, 2) : '-.--'} / BRRRR
                 </span>
               </Box>
               <span style={{ fontSize: '12px' }}>
@@ -398,7 +330,7 @@ const Home = () => {
                   <TokenSymbol symbol="BSHARE" />
                 </CardIcon>
               </Box>
-              <h2 style={{ marginBottom: '10px' }}>BSHARE</h2>
+              <h2 style={{ marginBottom: '10px' }}>BRRRRSHARE</h2>
               Current Price
               <Box>
                 <span style={{ fontSize: '30px', color: 'white' }}>
@@ -407,7 +339,7 @@ const Home = () => {
               </Box>
               <Box>
                 <span style={{ fontSize: '16px' }}>
-                  ${bSharePriceInDollars ? bSharePriceInDollars : '-.--'} / BSHARE
+                  ${bSharePriceInDollars ? bSharePriceInDollars : '-.--'} / BRRRRSHARE
                 </span>
               </Box>
               <span style={{ fontSize: '12px' }}>
@@ -439,79 +371,20 @@ const Home = () => {
                   <TokenSymbol symbol="BBOND" />
                 </CardIcon>
               </Box>
-              <h2 style={{ marginBottom: '10px' }}>BBOND</h2>
-              10,000 BBOND
+              <h2 style={{ marginBottom: '10px' }}>BRRRRBOND</h2>
+              10,000 BRRRRBOND
               <Box>
                 <span style={{ fontSize: '30px', color: 'white' }}>
-                  {tBondPriceInBNB ? tBondPriceInBNB : '-.----'} BTC
+                  {tBondPriceInBNB ? tBondPriceInBNB : '-.----'} BNB
                 </span>
               </Box>
               <Box>
-                <span style={{ fontSize: '16px' }}>${tBondPriceInDollars ? tBondPriceInDollars : '-.--'} / BBOND</span>
+                <span style={{ fontSize: '16px' }}>${tBondPriceInDollars ? tBondPriceInDollars : '-.--'} / BRRRRBOND</span>
               </Box>
               <span style={{ fontSize: '12px' }}>
                 Market Cap: ${roundAndFormatNumber((tBondCirculatingSupply * tBondPriceInDollars).toFixed(2), 2)} <br />
                 Circulating Supply: {roundAndFormatNumber(tBondCirculatingSupply, 2)} <br />
                 Total Supply: {roundAndFormatNumber(tBondTotalSupply, 2)}
-              </span>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Card>
-            <CardContent align="center">
-              <Box mt={2}>
-                <CardIcon>
-                  <TokenSymbol symbol="BOMB-BTCB-LP" />
-                </CardIcon>
-              </Box>
-              <h2>BOMB-BTCB PancakeSwap LP</h2>
-              <Box mt={2}>
-                <Button disabled onClick={onPresentBombZap} className="shinyButtonDisabledSecondary">
-                  Zap In
-                </Button>
-              </Box>
-              <Box mt={2}>
-                <span style={{ fontSize: '26px' }}>
-                  {bombLPStats?.tokenAmount ? bombLPStats?.tokenAmount : '-.--'} BOMB /{' '}
-                  {bombLPStats?.ftmAmount ? bombLPStats?.ftmAmount : '-.--'} BTCB
-                </span>
-              </Box>
-              <Box>${bombLPStats?.priceOfOne ? bombLPStats.priceOfOne : '-.--'}</Box>
-              <span style={{ fontSize: '12px' }}>
-                Liquidity: ${bombLPStats?.totalLiquidity ? roundAndFormatNumber(bombLPStats.totalLiquidity, 2) : '-.--'}{' '}
-                <br />
-                Total Supply: {bombLPStats?.totalSupply ? roundAndFormatNumber(bombLPStats.totalSupply, 2) : '-.--'}
-              </span>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Card>
-            <CardContent align="center">
-              <Box mt={2}>
-                <CardIcon>
-                  <TokenSymbol symbol="BSHARE-BNB-LP" />
-                </CardIcon>
-              </Box>
-              <h2>BSHARE-BNB PancakeSwap LP</h2>
-              <Box mt={2}>
-                <Button onClick={onPresentBshareZap} className="shinyButtonSecondary">
-                  Zap In
-                </Button>
-              </Box>
-              <Box mt={2}>
-                <span style={{ fontSize: '26px' }}>
-                  {bshareLPStats?.tokenAmount ? bshareLPStats?.tokenAmount : '-.--'} BSHARE /{' '}
-                  {bshareLPStats?.ftmAmount ? bshareLPStats?.ftmAmount : '-.--'} BNB
-                </span>
-              </Box>
-              <Box>${bshareLPStats?.priceOfOne ? bshareLPStats.priceOfOne : '-.--'}</Box>
-              <span style={{ fontSize: '12px' }}>
-                Liquidity: $
-                {bshareLPStats?.totalLiquidity ? roundAndFormatNumber(bshareLPStats.totalLiquidity, 2) : '-.--'}
-                <br />
-                Total Supply: {bshareLPStats?.totalSupply ? roundAndFormatNumber(bshareLPStats.totalSupply, 2) : '-.--'}
               </span>
             </CardContent>
           </Card>

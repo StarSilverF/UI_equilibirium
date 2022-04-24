@@ -19,7 +19,7 @@ import { BNB_TICKER, SPOOKY_ROUTER_ADDR, BOMB_TICKER } from '../utils/constants'
 import { bombMaxi } from '../services/graph';
 
 /**
- * An API module of Bomb Money contracts.
+ * An API module of equilibrrrrium contracts.
  * All contract-interacting domain logic should be defined in here.
  */
 export class BombFinance {
@@ -144,7 +144,7 @@ export class BombFinance {
     // const priceOfOneBNB = await this.getWBNBPriceFromPancakeswap();
     const priceOfOneBTC = await this.getBTCBPriceFromPancakeswap();
     //const priceInDollars = await this.getTokenPriceFromPancakeswapBOMBUSD();
-    const priceOfBombInDollars = ((Number(priceInBTC) * Number(priceOfOneBTC)) / 10000).toFixed(2);
+    const priceOfBombInDollars = ((Number(priceInBTC) * Number(priceOfOneBTC)) / 1000000).toFixed(2);
     //console.log('priceOfBombInDollars', priceOfBombInDollars);
 
     return {
@@ -418,7 +418,7 @@ export class BombFinance {
   ) {
     if (earnTokenName === 'BOMB') {
       if (!contractName.endsWith('BombRewardPool')) {
-        const rewardPerSecond = await poolContract.tSharePerSecond();
+        const rewardPerSecond = await poolContract.epochbrrrrPerSecond(1);
         if (depositTokenName === 'WBNB') {
           return rewardPerSecond.mul(6000).div(11000).div(24);
         } else if (depositTokenName === 'CAKE') {
@@ -434,25 +434,9 @@ export class BombFinance {
       const startDateTime = new Date(poolStartTime.toNumber() * 1000);
       const FOUR_DAYS = 4 * 24 * 60 * 60 * 1000;
       if (Date.now() - startDateTime.getTime() > FOUR_DAYS) {
-        return await poolContract.epochBombPerSecond(1);
+        return await poolContract.epochbrrrrPerSecond(1);
       }
-      return await poolContract.epochBombPerSecond(0);
-    }
-    const rewardPerSecond = await poolContract.tSharePerSecond();
-    if (depositTokenName.startsWith('BOMB-BTCB')) {
-      return rewardPerSecond.mul(400).div(1000);
-    } else if (depositTokenName.startsWith('BOMB-BSHARE')) {
-      return rewardPerSecond.mul(0).div(1000);
-    } else if (depositTokenName.startsWith('BOMB')) {
-      return rewardPerSecond.mul(0).div(1000);
-    } else if (depositTokenName.startsWith('BUSM-BUSD')) {
-      return rewardPerSecond.mul(100).div(1000);
-    } else if (depositTokenName.startsWith('80BOMB')) {
-      return rewardPerSecond.mul(200).div(1000);
-    } else if (depositTokenName.startsWith('80BSHARE')) {
-      return rewardPerSecond.mul(100).div(1000);
-    } else {
-      return rewardPerSecond.mul(200).div(1000);
+      return await poolContract.epochbrrrrPerSecond(0);
     }
     // if (depositTokenName.startsWith('BOMB-BTCB')) {
     //   return rewardPerSecond.mul(41650).div(10000);
@@ -629,9 +613,9 @@ export class BombFinance {
     const pool = this.contracts[poolName];
     try {
       if (earnTokenName === 'BOMB') {
-        return await pool.pendingBOMB(poolId, account);
+        return await pool.pendingBRRRR(poolId, account);
       } else {
-        return await pool.pendingShare(poolId, account);
+        return await pool.pendingBRRRR(poolId, account);
       }
     } catch (err) {
       console.error(`Failed to call pendingShare() on pool ${pool.address}: ${err.stack}`);
@@ -743,13 +727,13 @@ export class BombFinance {
     const ready = await this.provider.ready;
     if (!ready) return;
     //const { chainId } = this.config;
-    // const {WBNB} = this.config.externalTokens;
+     const {WBNB} = this.config.externalTokens;
 
-    // const wbnb = new Token(56, WBNB[0], WBNB[1]);
-    const btcb = new Token(56, this.BTC.address, this.BTC.decimal, 'BTCB', 'BTCB');
+     const wbnb = new Token(56, WBNB[0], WBNB[1]);
+    //const btcb = new Token(56, this.BTC.address, this.BTC.decimal, 'BTCB', 'BTCB');
     const token = new Token(56, tokenContract.address, tokenContract.decimal, tokenContract.symbol);
     try {
-      const wftmToToken = await Fetcher.fetchPairData(btcb, token, this.provider);
+      const wftmToToken = await Fetcher.fetchPairData(wbnb, token, this.provider);
       const priceInBUSD = new Route([wftmToToken], token);
       //   console.log('priceInBUSDBTC', priceInBUSD.midPrice.toFixed(12));
 
@@ -764,13 +748,13 @@ export class BombFinance {
     const ready = await this.provider.ready;
     if (!ready) return;
     //const { chainId } = this.config;
-    //const {WBNB} = this.config.externalTokens;
+    const {WBNB} = this.config.externalTokens;
 
-    //  const wbnb = new Token(56, WBNB[0], WBNB[1]);
-    const btcb = new Token(56, this.BTC.address, this.BTC.decimal, 'BTCB', 'BTCB');
+      const wbnb = new Token(56, WBNB[0], WBNB[1]);
+    //const btcb = new Token(56, this.BTC.address, this.BTC.decimal, 'BTCB', 'BTCB');
     const token = new Token(56, this.BOMB.address, this.BOMB.decimal, this.BOMB.symbol);
     try {
-      const wftmToToken = await Fetcher.fetchPairData(btcb, token, this.provider);
+      const wftmToToken = await Fetcher.fetchPairData(wbnb, token, this.provider);
       const priceInBUSD = new Route([wftmToToken], token);
       // console.log('test', priceInBUSD.midPrice.toFixed(12));
 

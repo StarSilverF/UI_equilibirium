@@ -32,7 +32,7 @@ const BackgroundImage = createGlobalStyle`
     background-color: #171923;
   }
 `;
-const TITLE = 'bomb.money | Bonds'
+const TITLE = 'equilibrrrrium | Bonds'
 
 const Bond: React.FC = () => {
   const {path} = useRouteMatch();

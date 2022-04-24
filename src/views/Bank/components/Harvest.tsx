@@ -26,7 +26,7 @@ const Harvest: React.FC<HarvestProps> = ({bank}) => {
   const bombStats = useBombStats();
   const tShareStats = useShareStats();
 
-  const tokenName = bank.earnTokenName === 'BSHARE' ? 'BSHARE' : 'BOMB';
+  const tokenName = bank.earnTokenName === 'BSHARE' ? 'BSHARE' : 'BRRRR';
   const tokenStats = bank.earnTokenName === 'BSHARE' ? tShareStats : bombStats;
   const tokenPriceInDollars = useMemo(
     () => (tokenStats ? Number(tokenStats.priceInDollars).toFixed(2) : null),
@@ -39,7 +39,7 @@ const Harvest: React.FC<HarvestProps> = ({bank}) => {
         <StyledCardContentInner>
           <StyledCardHeader>
             <CardIcon>
-              <TokenSymbol symbol={bank.earnToken.symbol} />
+              <TokenSymbol symbol={'BRRRR'} />
             </CardIcon>
             <Value value={getDisplayBalance(earnings)} />
                           <Typography style={{textTransform: 'uppercase', color: '#fffff'}}>
@@ -47,14 +47,14 @@ const Harvest: React.FC<HarvestProps> = ({bank}) => {
                     </Typography>
             {/* <Label text={`≈ $${earnedInDollars}`} /> */}
                   <Typography style={{textTransform: 'uppercase', color: '#f9d749'}}>
-              {`${tokenName} Earned`}
+              {`BRRRR Earned`}
                     </Typography>
              {/* <Label text={`${tokenName} Earned`} /> */}
           </StyledCardHeader>
           <StyledCardActions>
             <Button
+              disabled
               onClick={onReward}
-              disabled={earnings.eq(0)}
               className={earnings.eq(0) ? 'shinyButtonDisabled' : 'shinyButton'}
             >
               Claim

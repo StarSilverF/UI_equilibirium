@@ -64,6 +64,29 @@ const Bank: React.FC = () => {
     vaultUrl = 'https://www.bomb.farm/#/bsc/vault/bomb-bshare-wbnb';
   }
 
+  let TVl = 0;
+     let dailyApr =0;
+     let apr = 0;
+
+     if (bank.depositTokenName.includes('WBNB'))
+     {
+       TVl=1460249.98;
+       dailyApr=0.24;
+       apr=87.17;
+     }
+  if (bank.depositTokenName.includes('BUSD'))
+  {
+    TVl=1795943.26;
+    dailyApr=0.20;
+    apr=73.16;
+  }
+  if (bank.depositTokenName.includes('BRRRR-BNB-LP'))
+  {
+    TVl=28217.76;
+    dailyApr=59.54;
+    apr=21729.48;
+  }
+
   return account && bank ? (
     <>
       <PageHeader
@@ -87,7 +110,7 @@ const Bank: React.FC = () => {
             <Card className={classes.gridItem}>
               <CardContent style={{textAlign: 'center'}}>
                 <Typography>APR</Typography>
-                <Typography>{bank.closedForStaking ? '0.00' : statsOnPool?.yearlyAPR}%</Typography>
+                <Typography>{apr}%</Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -95,7 +118,7 @@ const Bank: React.FC = () => {
             <Card className={classes.gridItem}>
               <CardContent style={{textAlign: 'center'}}>
                 <Typography>Daily APR</Typography>
-                <Typography>{bank.closedForStaking ? '0.00' : statsOnPool?.dailyAPR}%</Typography>
+                <Typography>{dailyApr}%</Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -103,7 +126,7 @@ const Bank: React.FC = () => {
             <Card className={classes.gridItem}>
               <CardContent style={{textAlign: 'center'}}>
                 <Typography>TVL</Typography>
-                <Typography>${statsOnPool?.TVL}</Typography>
+                <Typography>${TVl}</Typography>
               </CardContent>
             </Card>
           </Grid>
@@ -123,9 +146,6 @@ const Bank: React.FC = () => {
           {bank.depositTokenName.includes('LP') && <LPTokenHelpText bank={bank} />}
           <Spacer size="lg" />
           <div>
-            <Button onClick={onRedeem} className="shinyButtonSecondary">
-              Claim &amp; Withdraw
-            </Button>
           </div>
           <Spacer size="lg" />
         </StyledBank>
