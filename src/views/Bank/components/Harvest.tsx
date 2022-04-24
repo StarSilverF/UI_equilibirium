@@ -21,7 +21,7 @@ interface HarvestProps {
 }
 
 const Harvest: React.FC<HarvestProps> = ({bank}) => {
-  const earnings = 100;
+  const earnings = useEarnings(bank.contract, bank.earnTokenName, bank.poolId);
   const {onReward} = useHarvest(bank);
   const bombStats = useBombStats();
   const tShareStats = useShareStats();
