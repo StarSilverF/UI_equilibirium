@@ -130,12 +130,12 @@ const Nav = () => {
               <Link to="/farm" className={'navLink ' + classes.link}>
                 Farm
               </Link>
-              <Link to="https://equilibrrrrium.money/boardroom" className={'navLink ' + classes.link}>
+              <a href="https://equilibrrrrium.money/boardroom" className={'navLink ' + classes.link}>
                 Boardroom
-              </Link>
-              <Link to="https://equilibrrrrium.money/bond" className={'navLink ' + classes.link}>
+              </a>
+              <a href="https://equilibrrrrium.money/bond" className={'navLink ' + classes.link}>
                 Bond
-              </Link>
+              </a>
 
 
               
