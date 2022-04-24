@@ -70,7 +70,7 @@ const Bank: React.FC = () => {
 
      if (bank.depositTokenName.includes('WBNB'))
      {
-       TVl=1295692;
+       TVl=295711;
        dailyApr=0;
        apr=0;
      }
