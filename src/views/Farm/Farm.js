@@ -94,9 +94,9 @@ const Farm = () => {
                   <Typography color="textYellow" align="center" variant="h4" gutterBottom style={{ marginTop: '40px' }}>
                     Earn BSHARE by staking BUSM Liquidity
                   </Typography>
-                  {/* <Alert variant="filled" severity="warning">
+                   <Alert variant="filled" severity="warning">
                     Genesis pools have ended. Please claim all rewards and remove funds from Genesis pools.
-                  </Alert> */}
+                  </Alert>
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
                       .filter((bank) => bank.sectionInUI === 1)
