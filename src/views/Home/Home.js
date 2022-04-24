@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
   const classes = useStyles();
-  const TVL = 1318489;
+  const TVL = 562326;
   const bombFtmLpStats = useLpStatsBNB('BOMB-BTCB-LP');
   const bShareFtmLpStats = useLpStats('BSHARE-BTC-LP');
   const bombStats = useBombStats();
