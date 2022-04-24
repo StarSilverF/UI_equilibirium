@@ -7,7 +7,7 @@ interface ValueProps {
 }
 
 const Value: React.FC<ValueProps> = ({value}) => {
-  return <StyledValue>2.5</StyledValue>;
+  return <StyledValue>{value}</StyledValue>;
 };
 
 const StyledValue = styled.div`
