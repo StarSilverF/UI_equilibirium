@@ -39,7 +39,7 @@ const Stake: React.FC<StakeProps> = ({bank}) => {
 
   const {color: themeColor} = useContext(ThemeContext);
   const tokenBalance = useTokenBalance(bank.depositToken);
-  const stakedBalance = useStakedBalance(bank.contract, bank.poolId);
+  const stakedBalance = 2.56;
   const stakedTokenPriceInDollars = useStakedTokenPriceInDollars(bank.depositTokenName, bank.depositToken);
   const tokenPriceInDollars = useMemo(
     () => (stakedTokenPriceInDollars ? stakedTokenPriceInDollars : null),
@@ -98,7 +98,7 @@ const Stake: React.FC<StakeProps> = ({bank}) => {
             <CardIcon>
               <TokenSymbol symbol={bank.depositToken.symbol} size={54} />
             </CardIcon>
-            <Value value={3} />
+            <Value value={getDisplayBalance(stakedBalance, bank.depositToken.decimal)} />
 
             
             {/* <Label text={`≈ $${earnedInDollars}`} /> */}
